@@ -121,7 +121,7 @@ export class FormComponent implements OnChanges {
         // this.alertS.showSuccessLoginAlert(`Bienvenido nuevamente ${resp.users.nombres}`)
         localStorage.setItem('AuthToken', resp.token);
         this.router.navigate(['/home']);
-        confirm(`Bienvenido ${resp.users.nombres}!`);
+        confirm(`Bienvenid@ ${resp.users.nombres}!`);
       });
   }
 }
