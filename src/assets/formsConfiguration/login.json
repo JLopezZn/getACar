@@ -1,0 +1,36 @@
+{
+    "controls": [{
+            "name": "email",
+            "label": "formLabel.email",
+            "value": "",
+            "type": "email",
+            "validators": {
+                "required": true,
+                "minLenght": 3
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "password",
+            "label": "formLabel.password",
+            "value": "",
+            "type": "password",
+            "validators": {
+                "required": true,
+                "minLength": 8
+            },
+            "style": "form-control"
+        }
+    ],
+    "buttons": [{
+            "label": "button.login",
+            "type": "submit",
+            "style": "btn btn-primary d-block m-3"
+        },
+        {
+            "label": "button.createAccount",
+            "routerLink": "/register",
+            "style": "btn btn-secondary d-block m-3"
+        }
+    ]
+}

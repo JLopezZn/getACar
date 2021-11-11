@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+$color1: #CFDBD5;
+$color2: #E8EDDF;
+$color3: #dda919;
+$color4: #242423;
+$color5: #242423;
+html,
+body {
+    height: 100%;
+}
+
+.rel {
+    position: relative;
+}
+
+.container-form {
+    height: 90%;
+}
+
+.btn {
+    border-radius: 5rem;
+    border-color: $color5;
+}
+
+.btn-primary {
+    background-color: $color3;
+}

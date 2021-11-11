@@ -1,0 +1,18 @@
+@import '../../../../../styles.scss';
+.header {
+    height: 10%;
+    display: block;
+    background-color: $color5;
+}
+
+.navigation {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    color: $color1;
+    display: flex;
+}

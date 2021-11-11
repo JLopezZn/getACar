@@ -1,0 +1,17 @@
+<div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div [ngClass]="{'row' : key == 'register'}">
+            <div *ngFor="let control of data?.controls" [ngClass]="{'col-6' : key == 'register'}">
+                <label>{{ control.label | translate }}</label>
+                <input *ngIf="control.type !== 'select'" [class]="control.style" [type]="control.type" [formControlName]="control.name" [value]="control.value" />
+                <select *ngIf="control.type == 'select'" class="form-select">
+            <option *ngFor="let option of control.selections" [value]="option.value">{{option.label | translate}}</option>
+          </select>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column">
+            <button *ngFor="let button of data?.buttons" [routerLink]="button?.routerLink" [class]="button.style" [type]="button.type">{{button.label | translate}}</button>
+        </div>
+    </form>
+</div>

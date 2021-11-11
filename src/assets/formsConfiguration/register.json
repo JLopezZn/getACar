@@ -1,0 +1,93 @@
+{
+    "controls": [{
+            "name": "name",
+            "label": "formLabel.name",
+            "value": "",
+            "type": "text",
+            "validators": {
+                "required": true,
+                "minLenght": 3
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "lastname",
+            "label": "formLabel.lastname",
+            "value": "",
+            "type": "text",
+            "validators": {
+                "required": true,
+                "minLength": 8
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "email",
+            "label": "formLabel.email",
+            "value": "",
+            "type": "email",
+            "validators": {
+                "required": true,
+                "minLength": 8
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "password",
+            "label": "formLabel.password",
+            "value": "",
+            "type": "password",
+            "validators": {
+                "required": true,
+                "minLength": 8
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "telephone",
+            "label": "formLabel.tel",
+            "value": "",
+            "type": "tel",
+            "validators": {
+                "required": true,
+                "minLength": 8
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "genre",
+            "label": "formLabel.genre",
+            "value": "Masculino",
+            "type": "select",
+            "selections": [{
+                    "value": "Masculino",
+                    "label": "formLabel.masculine"
+                },
+                {
+                    "value": "Femenino",
+                    "label": "formLabel.feminine"
+                },
+                {
+                    "value": "N/A",
+                    "label": "formLabel.preference"
+                }
+            ],
+            "validators": {
+                "required": true,
+                "minLength": 8
+            },
+            "style": "form-control"
+        }
+    ],
+    "buttons": [{
+            "label": "button.register",
+            "type": "submit",
+            "style": "btn btn-primary d-block m-3"
+        },
+        {
+            "label": "button.alreadyAccount",
+            "routerLink": "/login",
+            "style": "btn btn-secondary d-block m-3"
+        }
+    ]
+}

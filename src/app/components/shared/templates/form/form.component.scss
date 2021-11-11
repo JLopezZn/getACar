@@ -1,0 +1,11 @@
+@import '../../../../../styles.scss';
+.form-container {
+    background-color: $color2;
+    opacity: 90%;
+    padding: 2rem;
+    max-height: 30rem;
+    border-radius: 1rem;
+    label {
+        padding: .5rem;
+    }
+}

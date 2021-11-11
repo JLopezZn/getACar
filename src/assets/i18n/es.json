@@ -1,0 +1,25 @@
+{
+    "title": {
+        "welcome": "Bienvenido",
+        "findCar": "Encuentra el auto de tus sueños",
+        "get": "get",
+        "aCar": "ACar"
+    },
+    "formLabel": {
+        "email": "Email",
+        "name": "Nombre(s)",
+        "lastname": "Apellido(s)",
+        "password": "Contraseña",
+        "tel": "Teléfono",
+        "genre": "Género",
+        "preference": "Prefiero no proporcionarlo",
+        "masculine": "Masculino",
+        "feminine": "Femenino"
+    },
+    "button": {
+        "login": "Iniciar Sesión",
+        "register": "Registarse",
+        "createAccount": "Crear Cuenta",
+        "alreadyAccount": "Ya tengo una cuenta"
+    }
+}
