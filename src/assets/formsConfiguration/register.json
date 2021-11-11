@@ -17,7 +17,7 @@
             "type": "text",
             "validators": {
                 "required": true,
-                "minLength": 8
+                "minLength": 3
             },
             "style": "form-control"
         },
@@ -28,7 +28,7 @@
             "type": "email",
             "validators": {
                 "required": true,
-                "minLength": 8
+                "pattern": "email"
             },
             "style": "form-control"
         },
@@ -50,7 +50,8 @@
             "type": "tel",
             "validators": {
                 "required": true,
-                "minLength": 8
+                "minLength": 10,
+                "maxLength": 10
             },
             "style": "form-control"
         },
@@ -73,8 +74,7 @@
                 }
             ],
             "validators": {
-                "required": true,
-                "minLength": 8
+                "required": true
             },
             "style": "form-control"
         }

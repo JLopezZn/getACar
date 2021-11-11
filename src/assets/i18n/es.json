@@ -14,7 +14,9 @@
         "genre": "Género",
         "preference": "Prefiero no proporcionarlo",
         "masculine": "Masculino",
-        "feminine": "Femenino"
+        "feminine": "Femenino",
+        "mandatoryField": "Campo Obligatorio",
+        "pleaseCheckFields": "Por favor, revisa los campos obligatorios"
     },
     "button": {
         "login": "Iniciar Sesión",

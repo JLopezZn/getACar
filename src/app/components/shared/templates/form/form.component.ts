@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } f
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { FormControls, FormData } from '../../../../models/IFormData';
 import { AuthService } from '../../../../services/auth/auth.service';
+import { REGEXP } from '../../../../../assets/regex/regex';
 
 @Component({
   selector: 'app-form',
@@ -13,6 +14,7 @@ export class FormComponent implements OnChanges {
   @Input() data!: FormData;
   @Input() key!: string;
   form: FormGroup = this.fb.group({});
+  formHasErrors = false;
 
   constructor(private fb: FormBuilder, private authS: AuthService) {
   }
@@ -58,7 +60,8 @@ export class FormComponent implements OnChanges {
             validatorsToAdd.push(Validators.maxLength(value));
             break;
           case 'pattern':
-            validatorsToAdd.push(Validators.pattern(value));
+            if(value == 'email')
+              validatorsToAdd.push(Validators.pattern(REGEXP.EMAIL));
             break;
           case 'nullValidator':
             if (value) {
@@ -73,8 +76,19 @@ export class FormComponent implements OnChanges {
     }
   }
 
+  inputHasError(control: string){
+    if((this.form.controls[control].errors  && this.form.controls[control].touched))
+      return true;
+    else
+      return false;
+  }
+
   onSubmit(){
-    // if(this.form.invalid) return;
+    if(this.form.invalid) {
+      console.log(this.form.value)
+      this.formHasErrors = true;
+      return;
+    }
 
     this.authS.connect(this.form.value, this.key).subscribe(resp =>{
       console.log(resp);
