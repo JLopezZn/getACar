@@ -21,6 +21,6 @@ export class AuthService {
       "email": data.email,
       "password": data.password
   }
-   return this.http.post(`${this.url}${key}`, body);
+   return this.http.post(`${this.url}${key}/`, body);
   }
 }
