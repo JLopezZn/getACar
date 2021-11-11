@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-input',
   template: '',
-  styleUrls: ['./input.component.css']
+  styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
   @Input() type!: string;
