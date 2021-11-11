@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { LoginUser } from '../../models/ILoginUser';
 import { HttpClient } from '@angular/common/http';
+import { AuthResponse } from '../../models/IAuthResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,6 @@ export class AuthService {
       "email": data.email,
       "password": data.password
   }
-   return this.http.post(`${this.url}${key}/`, body);
+   return this.http.post<AuthResponse>(`${this.url}${key}/`, body);
   }
 }

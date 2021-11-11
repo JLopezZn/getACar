@@ -6,7 +6,7 @@
             "type": "email",
             "validators": {
                 "required": true,
-                "minLenght": 3
+                "pattern": "email"
             },
             "style": "form-control"
         },

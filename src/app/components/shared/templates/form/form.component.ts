@@ -1,31 +1,45 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { FormControls, FormData } from '../../../../models/IFormData';
 import { AuthService } from '../../../../services/auth/auth.service';
+import { REGEXP } from '../../../../../assets/regex/regex';
+import { AuthResponse } from 'src/app/models/IAuthResponse';
+import { Router } from '@angular/router';
+import { AlertsService } from '../../../../services/alerts/alerts.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent implements OnChanges {
   @Input() data!: FormData;
   @Input() key!: string;
   form: FormGroup = this.fb.group({});
+  formHasErrors = false;
 
-  constructor(private fb: FormBuilder, private authS: AuthService) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private authS: AuthService,
+    private router: Router,
+    private alertS: AlertsService
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(!changes.data.firstChange){
+    if (!changes.data.firstChange) {
       this.createForm(this.data.controls);
     }
   }
 
-  createForm(controls: FormControls[]){
-    for(const control of controls){
-
+  createForm(controls: FormControls[]) {
+    for (const control of controls) {
       const validatorsToAdd = [];
 
       for (const [key, value] of Object.entries(control.validators)) {
@@ -58,7 +72,8 @@ export class FormComponent implements OnChanges {
             validatorsToAdd.push(Validators.maxLength(value));
             break;
           case 'pattern':
-            validatorsToAdd.push(Validators.pattern(value));
+            if (value == 'email')
+              validatorsToAdd.push(Validators.pattern(REGEXP.EMAIL));
             break;
           case 'nullValidator':
             if (value) {
@@ -69,15 +84,44 @@ export class FormComponent implements OnChanges {
             break;
         }
       }
-       this.form.addControl(control.name, this.fb.control('', validatorsToAdd));
+      this.form.addControl(control.name, this.fb.control('', validatorsToAdd));
     }
   }
 
-  onSubmit(){
-    // if(this.form.invalid) return;
+  inputHasError(control: string) {
+    if (
+      this.form.controls[control].errors &&
+      this.form.controls[control].touched
+    )
+      return true;
+    else return false;
+  }
 
-    this.authS.connect(this.form.value, this.key).subscribe(resp =>{
-      console.log(resp);
-    })
+  changeGenre(e: any){
+    this.form.controls['genre'].setValue(e.target.value, {
+      onlySelf: true
+    });
+  }
+
+  onSubmit() {
+    if (this.form.invalid) {
+      console.log(this.form.value);
+      this.formHasErrors = true;
+      return;
+    }
+
+    this.authS
+      .connect(this.form.value, this.key)
+      .subscribe((resp: AuthResponse) => {
+        if (resp.details) {
+          confirm(resp.details);
+          // this.alertS.showAlert(resp.details, 'error');
+          return;
+        }
+        // this.alertS.showSuccessLoginAlert(`Bienvenido nuevamente ${resp.users.nombres}`)
+        localStorage.setItem('AuthToken', resp.token);
+        this.router.navigate(['/home']);
+        confirm(`Bienvenido ${resp.users.nombres}!`);
+      });
   }
 }
