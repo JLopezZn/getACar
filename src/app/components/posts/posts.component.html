@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridlex/2.7.1/gridlex.min.css">
+
+<div class="grid-spaceAround content">
+        <mat-card *ngFor="let car of cars;" class="col-2_lg-6_sm-8_md-6_xs-12 example-card">
+            <mat-card-header class="grid-center">
+              <mat-card-title>{{car.brand}} {{car.model}}</mat-card-title>
+              <mat-card-subtitle>Año {{car.year}}, Transmision {{car.transmission}}</mat-card-subtitle>
+            </mat-card-header>
+            <div class="grid-center">
+              <img class="col-11" mat-card-image style ="  width: 100%; height: auto; min-height:250px; border-radius:20px;" src="{{car.image}}" alt="{{car.model}}}">
+            </div>
+            <mat-card-content class="grid-center">
+              <mat-card-title>${{car.price}}</mat-card-title>
+            </mat-card-content>
+
+              <mat-card-actions class="grid-center">
+                <button mat-stroked-button>Contactar al vendedor</button>
+              </mat-card-actions>
+
+
+          </mat-card>
+</div>

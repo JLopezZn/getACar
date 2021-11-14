@@ -6,6 +6,7 @@ import { HomeComponent } from './components/layout/home/home.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { LoggedGuard } from './guards/logged.guard';
 import { UserProfileComponent } from './components/layout/user-profile/user-profile.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
     path: 'userProfile',
     component: UserProfileComponent,
     canActivate: [AuthGuardGuard]
+  },{
+    path: 'posts',
+    component: PostsComponent
   },
   {
     path: '**',

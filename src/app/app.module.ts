@@ -14,6 +14,11 @@ import { CarouselComponent } from './components/shared/templates/carousel/carous
 import { HeaderComponent } from './components/shared/templates/header/header.component';
 import { HomeComponent } from './components/layout/home/home.component';
 import { UserProfileComponent } from './components/layout/user-profile/user-profile.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +31,17 @@ import { UserProfileComponent } from './components/layout/user-profile/user-prof
     HeaderComponent,
     HomeComponent,
     UserProfileComponent
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    I18nModule
+    I18nModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
