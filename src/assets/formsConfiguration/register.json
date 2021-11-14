@@ -17,7 +17,7 @@
             "type": "text",
             "validators": {
                 "required": true,
-                "minLength": 8
+                "minLength": 3
             },
             "style": "form-control"
         },
@@ -28,7 +28,7 @@
             "type": "email",
             "validators": {
                 "required": true,
-                "minLength": 8
+                "pattern": "email"
             },
             "style": "form-control"
         },
@@ -50,14 +50,15 @@
             "type": "tel",
             "validators": {
                 "required": true,
-                "minLength": 8
+                "minLength": 10,
+                "maxLength": 10
             },
             "style": "form-control"
         },
         {
             "name": "genre",
             "label": "formLabel.genre",
-            "value": "Masculino",
+            "value": "N/A",
             "type": "select",
             "selections": [{
                     "value": "Masculino",
@@ -73,8 +74,7 @@
                 }
             ],
             "validators": {
-                "required": true,
-                "minLength": 8
+                "required": true
             },
             "style": "form-control"
         }

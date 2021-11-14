@@ -2,15 +2,17 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div [ngClass]="{'row' : key == 'register'}">
             <div *ngFor="let control of data?.controls" [ngClass]="{'col-6' : key == 'register'}">
-                <label>{{ control.label | translate }}</label>
+                <label>{{ control.label | translate }} <span *ngIf="control.validators.required" class="text-danger">*</span></label>
                 <input *ngIf="control.type !== 'select'" [class]="control.style" [type]="control.type" [formControlName]="control.name" [value]="control.value" />
-                <select *ngIf="control.type == 'select'" class="form-select">
-            <option *ngFor="let option of control.selections" [value]="option.value">{{option.label | translate}}</option>
-          </select>
+                <select *ngIf="control.type == 'select'" (change)="changeGenre($event)" class="form-select" [formControlName]="control.name">
+                  <option *ngFor="let option of control.selections" [ngValue]="option.value">{{option.label | translate}}</option>
+                </select>
+                <span *ngIf="inputHasError(control.name)" class="text-danger">{{"formLabel.mandatoryField" | translate}}</span>
             </div>
         </div>
 
         <div class="d-flex flex-column">
+            <span *ngIf="formHasErrors" class="text-danger text-center">{{"formLabel.pleaseCheckFields" | translate}}</span>
             <button *ngFor="let button of data?.buttons" [routerLink]="button?.routerLink" [class]="button.style" [type]="button.type">{{button.label | translate}}</button>
         </div>
     </form>
