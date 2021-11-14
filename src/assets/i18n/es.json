@@ -3,7 +3,8 @@
         "welcome": "Bienvenido",
         "findCar": "Encuentra el auto de tus sueños",
         "get": "get",
-        "aCar": "ACar"
+        "aCar": "ACar",
+        "updateProfile": "Actualizar Datos del Perfil"
     },
     "formLabel": {
         "email": "Email",
@@ -22,6 +23,9 @@
         "login": "Iniciar Sesión",
         "register": "Registarse",
         "createAccount": "Crear Cuenta",
-        "alreadyAccount": "Ya tengo una cuenta"
+        "alreadyAccount": "Ya tengo una cuenta",
+        "logOut": "Cerrar Sesión",
+        "profile": "Ver perfil",
+        "updateProfile": "Actualizar Perfil"
     }
 }

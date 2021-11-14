@@ -13,6 +13,7 @@ import { I18nModule } from './i18n/i18n.module';
 import { CarouselComponent } from './components/shared/templates/carousel/carousel.component';
 import { HeaderComponent } from './components/shared/templates/header/header.component';
 import { HomeComponent } from './components/layout/home/home.component';
+import { UserProfileComponent } from './components/layout/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from './components/layout/home/home.component';
     RegisterComponent,
     CarouselComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

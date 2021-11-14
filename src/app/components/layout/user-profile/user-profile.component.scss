@@ -1,0 +1,12 @@
+@import '../../../../styles.scss';
+.gradient {
+    height: 90%;
+    background-image: radial-gradient(circle, $color4, $color1);
+}
+
+.card {
+    background-color: $color1;
+    height: 80%;
+    border-radius: 2.5rem;
+    padding: 1rem;
+}
