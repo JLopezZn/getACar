@@ -13,11 +13,11 @@ import { I18nModule } from './i18n/i18n.module';
 import { CarouselComponent } from './components/shared/templates/carousel/carousel.component';
 import { HeaderComponent } from './components/shared/templates/header/header.component';
 import { HomeComponent } from './components/layout/home/home.component';
+import { UserProfileComponent } from './components/layout/user-profile/user-profile.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
     CarouselComponent,
     HeaderComponent,
     HomeComponent,
+    UserProfileComponent
     PostsComponent
   ],
   imports: [

@@ -5,9 +5,9 @@ export interface AuthResponse {
 }
 
 export interface Users {
-  id:        number;
-  email:     string;
-  nombres:   string;
-  apellidos: string;
-  telefono:  string;
+  id:        number| string | null;
+  email:     string | null;
+  nombres:   string | null;
+  apellidos: string | null;
+  telefono:  string | null;
 }
