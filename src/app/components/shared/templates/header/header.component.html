@@ -4,5 +4,23 @@
             <h2 class="m-0">{{'title.get' | translate}}<strong class="mr-2">{{'title.aCar' | translate}}</strong></h2>
             <h2 class="m-0"><i class="fad fa-car"></i></h2>
         </a>
+        <div>
+            <button *ngIf="authS.isUserLogged()" (click)="viewProfile()" class="btn btn-secondary">
+            <div class="d-flex align-items-center">
+              <p class="m-0 container">{{"button.profile" | translate}}</p>
+            <i class="fad fa-user"></i>
+            </div>
+          </button>
+            <button class="btn btn-primary" (click)="handleClick()">
+            <div *ngIf="authS.isUserLogged()" class="d-flex align-items-center">
+              <p class="m-0 container">{{"button.logOut" | translate}}</p>
+              <i  class="far fa-sign-out-alt"></i>
+            </div>
+            <div *ngIf="!authS.isUserLogged()" class="d-flex align-items-center">
+              <p class="m-0 container">{{"button.login" | translate}}</p>
+              <i  class="far fa-sign-in-alt"></i>
+            </div>
+          </button>
+        </div>
     </div>
 </div>

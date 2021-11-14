@@ -11,7 +11,7 @@ import { AuthService } from '../../../../services/auth/auth.service';
 import { REGEXP } from '../../../../../assets/regex/regex';
 import { AuthResponse } from 'src/app/models/IAuthResponse';
 import { Router } from '@angular/router';
-import { AlertsService } from '../../../../services/alerts/alerts.service';
+import { UserDataService } from '../../../../services/user-data/user-data.service';
 
 @Component({
   selector: 'app-form',
@@ -29,7 +29,7 @@ export class FormComponent implements OnChanges {
     private fb: FormBuilder,
     private authS: AuthService,
     private router: Router,
-    private alertS: AlertsService
+    private userDataS: UserDataService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -97,9 +97,9 @@ export class FormComponent implements OnChanges {
     else return false;
   }
 
-  changeGenre(e: any){
+  changeGenre(e: any) {
     this.form.controls['genre'].setValue(e.target.value, {
-      onlySelf: true
+      onlySelf: true,
     });
   }
 
@@ -120,6 +120,7 @@ export class FormComponent implements OnChanges {
         }
         // this.alertS.showSuccessLoginAlert(`Bienvenido nuevamente ${resp.users.nombres}`)
         localStorage.setItem('AuthToken', resp.token);
+        this.userDataS.setUserInfo(resp.users);
         this.router.navigate(['/home']);
         confirm(`Bienvenid@ ${resp.users.nombres}!`);
       });
