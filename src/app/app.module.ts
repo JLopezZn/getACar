@@ -16,8 +16,14 @@ import { HomeComponent } from './components/layout/home/home.component';
 import { UserProfileComponent } from './components/layout/user-profile/user-profile.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { PostModalComponent } from './components/post-modal/post-modal.component';
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+
+
+
 
 
 @NgModule({
@@ -30,8 +36,9 @@ import { MatButtonModule } from '@angular/material/button';
     CarouselComponent,
     HeaderComponent,
     HomeComponent,
-    UserProfileComponent
-    PostsComponent
+    UserProfileComponent,
+    PostsComponent,
+    PostModalComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +48,13 @@ import { MatButtonModule } from '@angular/material/button';
     I18nModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
