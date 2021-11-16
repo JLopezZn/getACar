@@ -12,7 +12,11 @@ export class CarService {
 
   constructor(private http : HttpClient) { }
 
-  connect(key: string): Observable<Icar[]>{
+  getAllCars(key: string): Observable<Icar[]>{
    return this.http.get<Icar[]>(this.url + key);
+  }
+
+  getCarById(id:number):Observable<Icar>{
+    return this.http.get<Icar>(this.url + 'cars/' + id.toString()+"/");
   }
 }

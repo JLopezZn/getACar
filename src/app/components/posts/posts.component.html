@@ -1,22 +1,80 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridlex/2.7.1/gridlex.min.css">
 
-<div class="grid-spaceAround content">
-        <mat-card *ngFor="let car of cars;" class="col-2_lg-6_sm-8_md-6_xs-12 example-card">
-            <mat-card-header class="grid-center">
+
+<!--Contenido del modal-->
+
+<ng-template #vendedorModalContent let-data>
+  <div  class="grid">
+    <div  class="col-6 grid-column">
+      <div class="col-12 grid-center">
+        <div class="ModalImgContainer">
+          <img  src="{{data.image}}" alt="{{data.model}}">
+        </div>
+      </div>   
+      <mat-card class="col-12">
+        <mat-card-title style="text-align: center;">{{data.brand}} {{data.model}} </mat-card-title>
+        <mat-card-content class="grid-spaceAround">
+          <div class="col-5">
+            <br>
+            <p>Año: {{data.year}}</p>
+            <p>Transmision: {{data.transmission}}</p>
+            <p>Tipo de auto: {{data.type_car}}</p>
+          </div>
+          <div style="text-align: center;" class="col-5">
+            <h1>Precio: ${{data.price}}</h1>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+
+    <div  class="col-6 grid-column">
+      
+      <div class="grid-center-noBottom">
+        <h2 class="col-10">Informacion de contacto</h2>
+        <mat-card style="margin-bottom:10%;" class="col-10 grid">
+          <div  class="col-6 grid-column">
+            <h2 class="col-12">John Doe</h2>
+            <p class="col-12">JDoe@gmail.com</p>
+            <p class="col-12">+81 23567869</p>
+            <p class="col-12">Mty,NL</p>
+          </div>
+          
+          <div class="col-6 ppImgContainer" >
+            <img src="https://thispersondoesnotexist.com/image" alt="">
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="grid-center">
+        <input style="width: auto; height:150px;" class="col-10" type="text">
+      </div>
+
+      <div class="grid-center">
+        <button  placeholder="Di hola!" class="col-10" mat-flat-button color="primary">Enviar mensaje</button>
+      </div>
+    </div>
+    
+  </div>
+</ng-template>
+
+
+
+<div class="grid-spaceAround-noBottom content">
+        <mat-card *ngFor="let car of cars;" class="col-2_lg-6_sm-8_md-6_xs-12 mCard">
+            <mat-card-header style="text-align: center;" class="grid-center">
               <mat-card-title>{{car.brand}} {{car.model}}</mat-card-title>
-              <mat-card-subtitle>Año {{car.year}}, Transmision {{car.transmission}}</mat-card-subtitle>
+              <mat-card-subtitle>Año {{car.year}}</mat-card-subtitle>
             </mat-card-header>
-            <div class="grid-center">
-              <img class="col-11" mat-card-image style ="  width: 100%; height: auto; min-height:250px; border-radius:20px;" src="{{car.image}}" alt="{{car.model}}}">
+            <div class="imgContainer">
+              <img  class ="cardThumbnail" src="{{car.image}}" alt="{{car.model}}}">
             </div>
-            <mat-card-content class="grid-center">
-              <mat-card-title>${{car.price}}</mat-card-title>
-            </mat-card-content>
-
-              <mat-card-actions class="grid-center">
-                <button mat-stroked-button>Contactar al vendedor</button>
-              </mat-card-actions>
-
-
+            
+            <div class=" grid-center-noBottom cardBottom">
+              <h2 class="col-12">${{car.price}}</h2>
+              <button class="col-12" mat-stroked-button (click)="vendedorModal(vendedorModalContent,car.id)">Contactar al vendedor</button>
+            </div>
           </mat-card>
+          
 </div>
