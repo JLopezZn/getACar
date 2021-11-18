@@ -18,6 +18,7 @@ export class UserProfileComponent implements OnInit {
   userInfo!: Users;
   form!: FormGroup;
   formHasErrors = false;
+  editUser: boolean = false;
 
   constructor(private userDataS: UserDataService, private fb: FormBuilder) {
     this.userInfo = userDataS.getUserInfo();
@@ -51,6 +52,11 @@ export class UserProfileComponent implements OnInit {
       this.formHasErrors = true;
       return;
     }
+    this.editUser = !this.editUser;
     console.log(this.form)
+  }
+
+  editProfile(){
+    this.editUser = !this.editUser;
   }
 }

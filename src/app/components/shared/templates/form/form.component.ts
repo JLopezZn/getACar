@@ -12,6 +12,7 @@ import { REGEXP } from '../../../../../assets/regex/regex';
 import { AuthResponse } from 'src/app/models/IAuthResponse';
 import { Router } from '@angular/router';
 import { UserDataService } from '../../../../services/user-data/user-data.service';
+import { CarService } from '../../../../services/car.service';
 
 @Component({
   selector: 'app-form',
@@ -21,7 +22,7 @@ import { UserDataService } from '../../../../services/user-data/user-data.servic
 })
 export class FormComponent implements OnChanges {
   @Input() data!: FormData;
-  @Input() key!: string;
+  @Input() key!: 'login' | 'cars' | 'register';
   form: FormGroup = this.fb.group({});
   formHasErrors = false;
 
@@ -29,7 +30,8 @@ export class FormComponent implements OnChanges {
     private fb: FormBuilder,
     private authS: AuthService,
     private router: Router,
-    private userDataS: UserDataService
+    private userDataS: UserDataService,
+    private carsS: CarService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -98,9 +100,15 @@ export class FormComponent implements OnChanges {
   }
 
   changeGenre(e: any) {
-    this.form.controls['genre'].setValue(e.target.value, {
-      onlySelf: true,
-    });
+    if(this.key === 'register'){
+      this.form.controls['genre'].setValue(e.target.value, {
+        onlySelf: true,
+      });
+    } else {
+      this.form.controls['transmission'].setValue(e.target.value, {
+        onlySelf: true,
+      });
+    }
   }
 
   onSubmit() {
@@ -110,15 +118,25 @@ export class FormComponent implements OnChanges {
       return;
     }
 
+    if(this.key === 'cars'){
+      this.carsS.postCar(this.form.value,this.userDataS.getUserInfo()).subscribe((resp: any) =>{
+        if (resp.details) {
+          confirm(resp.details);
+          return;
+        }
+        confirm(`Anuncio creado correctamente.`);
+        this.router.navigate(['/myPosts']);
+      })
+      return
+    }
+
     this.authS
       .connect(this.form.value, this.key)
       .subscribe((resp: AuthResponse) => {
         if (resp.details) {
           confirm(resp.details);
-          // this.alertS.showAlert(resp.details, 'error');
           return;
         }
-        // this.alertS.showSuccessLoginAlert(`Bienvenido nuevamente ${resp.users.nombres}`)
         localStorage.setItem('AuthToken', resp.token);
         this.userDataS.setUserInfo(resp.users);
         this.router.navigate(['/home']);
