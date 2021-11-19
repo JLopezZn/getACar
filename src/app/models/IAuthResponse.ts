@@ -10,5 +10,5 @@ export interface Users {
   nombres:   string | null;
   apellidos: string | null;
   telefono:  string | null;
-  genero?:   string;
+  genero:   string | null;
 }
