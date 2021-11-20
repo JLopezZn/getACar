@@ -1,0 +1,32 @@
+<app-no-data *ngIf="!myPosts.length"></app-no-data>
+<div *ngIf="myPosts.length" class="container pt-3 ">
+    <h1 class="text-center m-0">{{"title.postsOf" | translate}} {{userInfo.nombres}}</h1>
+    <button class="btn btn-primary" style="float: right;" [routerLink]="['/cratePost']">{{"button.newPosts" | translate}} <i class="fad fa-plus-circle"></i></button>
+    <div class="p-5">
+        <div *ngFor="let post of myPosts" class="card mb-3 w-100">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img [src]="post.image" class="img-fluid rounded-start h-100 w-100">
+                </div>
+                <div class="col-md-8 ">
+                    <div class="card-body">
+                        <h2 class="card-title">{{post.brand}} {{post.model}}</h2>
+                        <hr class="solid">
+                        <p class="card-text">{{"aux.year" | translate}} : {{post.year}}</p>
+                        <hr class="solid">
+                        <p class="card-text">{{"aux.type" | translate}} : {{post.type_car}}</p>
+                        <hr class="solid">
+                        <p *ngIf="post.transmission === 'A' " class="card-text">{{"aux.transmission" | translate}} : {{ "aux.automatic" | translate}}</p>
+                        <p *ngIf="post.transmission === 'M' " class="card-text">{{"aux.transmission" | translate}} : {{ "aux.manual" | translate}}</p>
+                        <hr class="solid">
+                        <h3 class="card-text"><small class="text-muted">{{"aux.price" | translate}} : ${{post.price}}</small></h3>
+                        <hr class="solid">
+                        <div class="row">
+                            <button class="btn btn-secondary" (click)="onDelete(post.id)"><i class="fad fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

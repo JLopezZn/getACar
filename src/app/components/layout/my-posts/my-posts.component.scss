@@ -1,0 +1,9 @@
+@import '../../../../styles.scss';
+.card {
+    border-radius: 2rem !important;
+    background-color: $color4;
+    color: $color2;
+    img {
+        border-radius: 2rem !important;
+    }
+}

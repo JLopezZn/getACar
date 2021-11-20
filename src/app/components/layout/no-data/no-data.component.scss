@@ -1,0 +1,31 @@
+@import '../../../../styles.scss';
+.notFound-container {
+    width: 100%;
+    height: 90%;
+    background-color: $color4;
+    padding: 14px 10px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .notFound-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .error-header {
+            margin-top: 20%;
+            font-size: 300%;
+        }
+        .error-msg {
+            color: $color1;
+            padding: 2rem;
+        }
+        .error-btn {
+            margin-top: 20%;
+            background-color: $color3;
+            border-radius: 0%;
+            width: 70%;
+        }
+    }
+}

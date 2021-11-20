@@ -7,6 +7,8 @@ import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { LoggedGuard } from './guards/logged.guard';
 import { UserProfileComponent } from './components/layout/user-profile/user-profile.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { MyPostsComponent } from './components/layout/my-posts/my-posts.component';
+import { EditPostsComponent } from './components/layout/edit-posts/edit-posts.component';
 
 const routes: Routes = [
   {
@@ -20,17 +22,22 @@ const routes: Routes = [
     canActivate: [LoggedGuard]
   },
   {
-    path: 'home',
-    component: HomeComponent,
-    canActivate:[AuthGuardGuard]
-  },
-  {
     path: 'userProfile',
     component: UserProfileComponent,
     canActivate: [AuthGuardGuard]
   },{
-    path: 'posts',
+    path: 'home',
     component: PostsComponent
+  },
+  {
+    path: 'myPosts',
+    component: MyPostsComponent,
+    canActivate: [AuthGuardGuard]
+  },
+  {
+    path: 'cratePost',
+    component: EditPostsComponent,
+    canActivate: [AuthGuardGuard]
   },
   {
     path: '**',
