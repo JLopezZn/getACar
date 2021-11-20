@@ -3,17 +3,20 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.0.3",
     "@angular/cdk": "^12.2.13",
+    "@angular/cli": "~12.0.3",
     "@angular/common": "~12.0.3",
     "@angular/compiler": "~12.0.3",
+    "@angular/compiler-cli": "~12.0.3",
     "@angular/core": "~12.0.3",
     "@angular/forms": "~12.0.3",
     "@angular/material": "^12.2.13",
@@ -27,15 +30,18 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "classlist.js": "1.1.20150312",
+    "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "igniteui-angular": "^12.0.11",
     "jszip": "^3.6.0",
     "minireset.css": "~0.0.4",
     "ng-bootstrap": "^1.6.3",
     "ngx-image-zoom": "^0.6.0",
+    "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.1.10",
     "tslib": "^2.1.0",
+    "typescript": "~4.2.3",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.11.4"
   },
@@ -54,5 +60,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "~4.2.3"
+  },
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.1.0"
   }
 }
