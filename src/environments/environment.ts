@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://igetacar.herokuapp.com/api/'
+  apiUrl: 'https://api-getacar.azurewebsites.net/api/'
 };
 
 /*

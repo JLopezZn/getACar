@@ -2,6 +2,7 @@
     <div class="notFound-content">
         <img src="https://cdn.iconscout.com/icon/free/png-256/data-not-found-1965034-1662569.png" alt="notFoundIMG">
         <h1 class="error-msg">{{"message.pageNotFound" | translate}}</h1>
-        <button class="btn btn-primary w-100" (click)="handleClick()">{{"button.home" | translate}}</button>
+        <button class="btn btn-primary w-100" [routerLink]="['/cratePost']">{{"button.newPosts" | translate}} <i class="fad fa-plus-circle"></i></button>
+        <button class="btn btn-secondary w-100 mt-2" (click)="handleClick()">{{"button.home" | translate}}</button>
     </div>
 </div>
