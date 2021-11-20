@@ -4,26 +4,36 @@
             <h2 class="text-center m-0">{{"title.updateProfile" |translate}}</h2>
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="row">
-                    <div class="">
+                    <div class="col-6">
                         <label>{{ "formLabel.name" | translate }} <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" formControlName="name" />
+                        <input type="text" class="form-control" formControlName="nombres" [readOnly]="!editUser" />
                     </div>
-                    <div class="">
+                    <div class="col-6">
                         <label>{{ "formLabel.lastname" | translate }} <span class="text-danger ">*</span></label>
-                        <input type="text " class="form-control " formControlName="lastname" />
+                        <input type="text " class="form-control " formControlName="apellidos" [readOnly]="!editUser" />
                     </div>
                     <div class="">
                         <label>{{ "formLabel.tel" | translate }} <span class="text-danger ">*</span></label>
-                        <input type="tel " class="form-control " formControlName="phone" />
+                        <input type="tel" class="form-control " formControlName="telefono" placeholder="10 digitos" [readOnly]="!editUser" />
                     </div>
                     <div class="">
                         <label>{{ "formLabel.email" | translate }} <span class="text-danger ">*</span></label>
-                        <input type="email " class="form-control " formControlName="email" />
+                        <input type="email" class="form-control" formControlName="email" [readOnly]="!editUser" />
+                    </div>
+                    <div>
+                        <label>{{ "formLabel.genre" | translate }} <span class="text-danger ">*</span></label>
+                        <select (change)="changeGenre($event)" class="form-select" formControlName="genero" [attr.disabled]="!editUser ? '' : null">
+                        <option ngValue="M">{{"formLabel.masculine" | translate}}</option>
+                        <option ngValue="F">{{"formLabel.feminine" | translate}}</option>
+                        <option ngValue="N/A">{{"formLabel.preference" | translate}}</option>
+                      </select>
                     </div>
                 </div>
                 <div class="d-flex flex-column p-3 position-fixed-bottom">
                     <span *ngIf="formHasErrors " class="text-danger text-center ">{{"formLabel.pleaseCheckFields" | translate}}</span>
-                    <button class="btn-primary btn" type="submit ">{{"button.updateProfile" | translate}}</button>
+                    <button class="btn-primary btn" type="submit " *ngIf="editUser">{{"button.updateProfile" | translate}} <i class="fad fa-save"></i></button>
+                    <button class="btn-primary btn" type="button" *ngIf="!editUser" (click)="editProfile()">{{"button.editProfile" | translate}} <i class="fas fa-user-edit"></i></button>
+                    <button class="btn-secondary btn mt-2" type="button" *ngIf="!editUser" [routerLink]="['/myPosts']">{{"button.viewMyPosts" | translate}}</button>
                 </div>
             </form>
         </div>

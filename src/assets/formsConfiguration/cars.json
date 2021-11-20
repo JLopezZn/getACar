@@ -1,0 +1,101 @@
+{
+    "controls": [{
+            "name": "brand",
+            "label": "formLabel.brand",
+            "value": "",
+            "type": "text",
+            "validators": {
+                "required": true,
+                "minLenght": 3
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "model",
+            "label": "formLabel.model",
+            "value": "",
+            "type": "text",
+            "validators": {
+                "required": true,
+                "minLength": 3
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "year",
+            "label": "formLabel.year",
+            "value": "",
+            "type": "number",
+            "validators": {
+                "required": true,
+                "maxLength": 4,
+                "minLenght": 4,
+                "min": 1886,
+                "max": 2022
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "type_car",
+            "label": "formLabel.typeCar",
+            "value": "",
+            "type": "text",
+            "validators": {
+                "required": true,
+                "minLength": 3
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "price",
+            "label": "formLabel.price",
+            "value": "",
+            "type": "number",
+            "validators": {
+                "required": true,
+                "max": 999999999
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "image",
+            "label": "formLabel.image",
+            "value": "",
+            "type": "text",
+            "validators": {
+                "required": true
+            },
+            "style": "form-control"
+        },
+        {
+            "name": "transmission",
+            "label": "formLabel.transmission",
+            "value": "A",
+            "type": "select",
+            "selections": [{
+                    "value": "A",
+                    "label": "formLabel.automatic"
+                },
+                {
+                    "value": "M",
+                    "label": "formLabel.manual"
+                }
+            ],
+            "validators": {
+                "required": true
+            },
+            "style": "form-control"
+        }
+    ],
+    "buttons": [{
+            "label": "button.newPosts",
+            "type": "submit",
+            "style": "btn btn-primary d-block m-3"
+        },
+        {
+            "label": "button.cancel",
+            "routerLink": "/home",
+            "style": "btn btn-secondary d-block m-3"
+        }
+    ]
+}

@@ -4,7 +4,9 @@
         "findCar": "Encuentra el auto de tus sueños",
         "get": "get",
         "aCar": "ACar",
-        "updateProfile": "Actualizar Datos del Perfil"
+        "updateProfile": "Actualizar Datos del Perfil",
+        "postsOf": "Posts de ",
+        "createPosts": "Crear Nuevo Post"
     },
     "formLabel": {
         "email": "Email",
@@ -17,7 +19,16 @@
         "masculine": "Masculino",
         "feminine": "Femenino",
         "mandatoryField": "Campo Obligatorio",
-        "pleaseCheckFields": "Por favor, revisa los campos obligatorios"
+        "pleaseCheckFields": "Por favor, revisa los campos obligatorios",
+        "brand": "Marca",
+        "model": "Modelo",
+        "year": "Año",
+        "typeCar": "Tipo",
+        "price": "Precio",
+        "image": "Imagen (link)",
+        "transmission": "Transmisión",
+        "automatic": "Automático",
+        "manual": "Manual"
     },
     "button": {
         "login": "Iniciar Sesión",
@@ -26,6 +37,22 @@
         "alreadyAccount": "Ya tengo una cuenta",
         "logOut": "Cerrar Sesión",
         "profile": "Ver perfil",
-        "updateProfile": "Actualizar Perfil"
+        "updateProfile": "Actualizar Perfil",
+        "editProfile": "Editar Perfil",
+        "viewMyPosts": "Ver Mis Publicaciones",
+        "newPosts": "Crear Nuevo Post",
+        "cancel": "Cancelar",
+        "home": "Ir a Home"
+    },
+    "aux": {
+        "automatic": "Automático",
+        "manual": "Manual",
+        "year": "Año",
+        "type": "Tipo",
+        "transmission": "Transmisión",
+        "price": "Precio"
+    },
+    "message": {
+        "pageNotFound": "No Se Encontraron Datos"
     }
 }

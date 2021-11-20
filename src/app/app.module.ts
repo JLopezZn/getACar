@@ -20,6 +20,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { PostModalComponent } from './components/post-modal/post-modal.component';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MyPostsComponent } from './components/layout/my-posts/my-posts.component';
+import { EditPostsComponent } from './components/layout/edit-posts/edit-posts.component';
+import { NoDataComponent } from './components/layout/no-data/no-data.component';
 
 
 
@@ -38,7 +41,10 @@ import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
     HomeComponent,
     UserProfileComponent,
     PostsComponent,
-    PostModalComponent
+    PostModalComponent,
+    MyPostsComponent,
+    EditPostsComponent,
+    NoDataComponent
   ],
   imports: [
     BrowserModule,

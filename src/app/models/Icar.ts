@@ -1,3 +1,4 @@
+import { Users } from './IAuthResponse';
 export interface Icar {
     id:           number;
     brand:        string;
@@ -7,4 +8,5 @@ export interface Icar {
     transmission: string;
     price:        number;
     image:        string;
+    user?:         Users;
 }
